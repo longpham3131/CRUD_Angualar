@@ -1,4 +1,5 @@
 export interface IPerson {
+  id: number
   imgUrl: string
   phone: string
   age: number

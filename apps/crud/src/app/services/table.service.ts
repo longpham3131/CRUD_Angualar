@@ -13,13 +13,14 @@ export class TableService {
 
 
   getPerson(page: number , pageSize: number): Observable<IPersonPagination> {
+
     return this.http
       .get<IPerson[]>(this.usersApiUrl).pipe( map((per) => ({
-        items: per.slice(page* pageSize , pageSize * (page + 1)),
+        items: per.slice(page * pageSize , pageSize * (page + 1)),
         page: page,
         pageSize: pageSize,
         totalItems: per.length
-      })))
+      })), tap((val) => {console.log("resp", val)}))
   }
 
 }

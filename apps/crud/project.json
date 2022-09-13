@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/crud",
         "index": "apps/crud/src/index.html",
@@ -13,8 +15,21 @@
         "polyfills": "apps/crud/src/polyfills.ts",
         "tsConfig": "apps/crud/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/crud/src/favicon.ico", "apps/crud/src/assets"],
-        "styles": ["apps/crud/src/styles.scss"],
+        "assets": [
+          "apps/crud/src/favicon.ico",
+          "apps/crud/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
+        ],
+        "styles": [
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+          "apps/crud/src/styles.scss",
+          "node_modules/ngx-easy-table/style.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -71,12 +86,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/crud/**/*.ts", "apps/crud/**/*.html"]
+        "lintFilePatterns": [
+          "apps/crud/**/*.ts",
+          "apps/crud/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/crud"],
+      "outputs": [
+        "coverage/apps/crud"
+      ],
       "options": {
         "jestConfig": "apps/crud/jest.config.ts",
         "passWithNoTests": true

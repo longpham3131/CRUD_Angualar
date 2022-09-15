@@ -11,9 +11,9 @@ import {IPerson, IPersonPagination} from "../../interfaces/person";
 import {TableService} from "../../services/table.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CreateEditPersonComponent} from "../../components/create-edit-person/create-edit-person.component";
-import {TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
+import {TuiAlertService, TuiDialogContext, TuiDialogService, TuiNotification} from "@taiga-ui/core";
 import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {Observer} from "rxjs";
+import {catchError, Observer, of, switchMap, tap} from "rxjs";
 @Component({
   selector: 'crud-angular-person',
   templateUrl: './person.component.html',
@@ -21,10 +21,8 @@ import {Observer} from "rxjs";
 
 })
 export class PersonComponent implements OnInit {
-  title = 'crud';
   page = 0;
   size = 4;
-  showDialog = false
   @ViewChild('actionTpl', { static: true }) actionTpl!: TemplateRef<any>;
   public configuration!: Config;
   columns!: Columns[];
@@ -44,14 +42,12 @@ export class PersonComponent implements OnInit {
   constructor(private  personService: TableService
     ,private router: Router, private route: ActivatedRoute,
               @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
-              @Inject(Injector) private readonly injector: Injector,) {
-
+              @Inject(Injector) private readonly injector: Injector,@Inject(TuiAlertService) private readonly alert: TuiAlertService) {
   }
 
   ngOnInit():void {
     this.page = +this.route.snapshot.queryParams['page'] || 0
     this.size = +this.route.snapshot.queryParams['pageSize'] || 4
-
     this.configuration = { ...DefaultConfig, paginationEnabled: false, rows: 10, isLoading: true };
     this.fetchDataTable();
     this.columns = [
@@ -63,10 +59,14 @@ export class PersonComponent implements OnInit {
       { key: 'action', title: 'Actions', cellTemplate: this.actionTpl },
     ];
 
+    if(this.route.snapshot.queryParams['edit']){
+      this.handleEdit();
+    }
+
 
 
   }
-  fetchDataTable(){
+  fetchDataTable(): void{
     this.configuration.isLoading = true
     this.personService.getPerson(this.page, this.size).subscribe(
       (value) => {
@@ -75,57 +75,69 @@ export class PersonComponent implements OnInit {
       }
     )
   }
-  create() {
+  create(): void{
     this.router.navigate([''], {
       queryParams: {
         ...this.route.snapshot.queryParams,
         edit: undefined
       }
     })
-    this.dialog.subscribe({
-      next: data => {
-        this.personService.createPerson(data).subscribe();
-      },
-      complete: () => {
-        console.log(`Dialog closed`);
+    this.dialog.pipe(
+      tap((person) => {if(person){this.configuration.isLoading = true} }),
+      switchMap((data) => this.personService.createPerson(data))).subscribe({
+      next: () => {
+        this.fetchDataTable();
+        this.alert
+          .open(`Create success`, {
+            status: TuiNotification.Success,
+          }).subscribe();
       },
     });
 
   }
-
-  edit(rowIndex: number) {
-    const idPerson = this.data.items[rowIndex].id as number;
+  edit(rowIndex: number): void {
     this.router.navigate([''], {
       queryParams: {
         ...this.route.snapshot.queryParams,
-        edit: idPerson
+        edit: this.data.items[rowIndex].id
       }
     })
-    this.dialog.subscribe({
-      next: data => {
-        this.personService.updatePerson(data).subscribe();
-      },
-      complete: () => {
-        console.log(`Dialog closed`);
-      },
-    });
-
-
-
+    this.handleEdit();
 
   }
+  handleEdit():void{
+    this.dialog.pipe(
+      tap((person) => {if(person){this.configuration.isLoading = true} }),
+      switchMap(
+        (data) => this.personService.updatePerson( this.route.snapshot.queryParams['edit'], data),
+      )).subscribe({
+      next: () => {
+        this.fetchDataTable();
+        this.alert
+          .open(`Update success`, {
+            status: TuiNotification.Success,
+          }).subscribe();
+      },
+      complete: () => {
+        this.router.navigate([''], {
+          queryParams: {
+            ...this.route.snapshot.queryParams,
+            edit: undefined
+          }
+        })
+      }
+    });
+  }
 
-  delete(rowIndex: number, content: PolymorpheusContent<TuiDialogContext>) {
-    this.dialogService.open(content).subscribe();
+  delete(rowIndex: number, content: PolymorpheusContent<TuiDialogContext>): void {
+    this.dialogService.open(content, {size: 's'}).subscribe();
     this.idItemDeleted = this.data.items[rowIndex].id as number;
   }
 
-
-  pageChange($event: number) {
+  pageChange($event: number): void {
     this.page = $event
     this.configuration.isLoading = true
 
-    // push router
     this.router.navigate([''], {
       queryParams: {
         page: this.page,
@@ -142,13 +154,17 @@ export class PersonComponent implements OnInit {
 
   }
 
-
-  confirmDelete(content: PolymorpheusContent<TuiDialogContext>, observe: Observer<void>) {
-    const fetch = () => this.fetchDataTable()
+  confirmDelete(content: PolymorpheusContent<TuiDialogContext>, observe: Observer<void>): void {
     this.personService.deletePerson(this.idItemDeleted).subscribe({
-      complete(){
+      next: () => {
         observe.complete();
-        fetch();
+      },
+      complete: () =>{
+        this.fetchDataTable()
+        this.alert
+          .open(`Delete success`, {
+            status: TuiNotification.Success,
+          }).subscribe();
       }
     });
   }

@@ -3,7 +3,7 @@ import {
   TuiDialogModule,
   TuiAlertModule,
   TUI_SANITIZER,
-  TuiButtonModule, TuiLoaderModule,
+  TuiButtonModule, TuiLoaderModule, TuiErrorModule,
 } from '@taiga-ui/core';
 import { TuiTablePaginationModule } from '@taiga-ui/addon-table';
 
@@ -21,8 +21,8 @@ import { PersonComponent } from './home/person/person.component';
 import { CreateEditPersonComponent } from './components/create-edit-person/create-edit-person.component';
 import {
   TuiCheckboxLabeledModule,
-  TuiCheckboxModule, TuiDataListWrapperModule,
-  TuiInputModule,
+  TuiCheckboxModule, TuiDataListWrapperModule, TuiFieldErrorPipeModule,
+  TuiInputModule, TuiInputNumberModule, TuiInputPhoneModule,
   TuiRadioModule,
   TuiSelectModule
 } from "@taiga-ui/kit";
@@ -50,6 +50,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     TuiSelectModule,
     TuiDataListWrapperModule,
     TuiLoaderModule,
+    TuiErrorModule,
+    TuiFieldErrorPipeModule,
+    TuiInputNumberModule,
+    TuiInputPhoneModule,
   ],
   entryComponents: [CreateEditPersonComponent],
   providers: [],

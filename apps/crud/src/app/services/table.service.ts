@@ -19,7 +19,7 @@ export class TableService {
         page: page,
         pageSize: pageSize,
         totalItems: per.length
-      })), tap((val) => {console.log("resp", val)}))
+      })))
   }
 
   getPersonDetail(id: number): Observable<IPerson>{
@@ -29,8 +29,8 @@ export class TableService {
   createPerson(person: IPerson): Observable<IPerson>{
     return  this.http.post<IPerson>(this.usersApiUrl, person)
   }
-  updatePerson(person: IPerson): Observable<IPerson>{
-    return  this.http.put<IPerson>(`$`, person)
+  updatePerson(persionId: number, person: IPerson): Observable<IPerson>{
+    return  this.http.put<IPerson>(`${this.usersApiUrl}/${persionId}`, person)
   }
   deletePerson(personId: number):Observable<any>{
     return this.http.delete(`${this.usersApiUrl}/${personId}`)

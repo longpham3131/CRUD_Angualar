@@ -1,20 +1,6 @@
 {
   "person": [
     {
-      "id": 5,
-      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
-      "phone": "+1 (934) 551-2224",
-      "age": 20,
-      "address": {
-        "street": "North street",
-        "number": 12
-      },
-      "company": "ZILLANET",
-      "name": "Valentine Webb",
-      "isActive": false,
-      "level": "Medium"
-    },
-    {
       "id": 6,
       "imgUrl": "https://i.imgur.com/GLqxxnn.png",
       "phone": "+1 (948) 460-3627",
@@ -113,20 +99,6 @@
       "level": "High"
     },
     {
-      "id": 13,
-      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
-      "phone": "+1 (939) 530-3189",
-      "age": 34,
-      "address": {
-        "street": "Dacota street",
-        "number": 12
-      },
-      "company": "MARKETOID",
-      "name": "Scott Barker",
-      "isActive": true,
-      "level": "Low"
-    },
-    {
       "id": 14,
       "imgUrl": "https://i.imgur.com/GLqxxnn.png",
       "phone": "+1 (949) 600-2827",
@@ -169,32 +141,14 @@
       "level": "Low"
     },
     {
-      "id": 17,
+      "name": "Merrill Allen 123",
       "imgUrl": "https://i.imgur.com/GLqxxnn.png",
       "phone": "+1 (967) 573-3873",
       "age": 35,
-      "address": {
-        "street": "Australia street",
-        "number": 12
-      },
       "company": "EWEVILLE",
-      "name": "Merrill Allen",
       "isActive": true,
-      "level": "Medium"
-    },
-    {
-      "id": 18,
-      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
-      "phone": "+1 (985) 404-2360",
-      "age": 30,
-      "address": {
-        "street": "NYC street",
-        "number": 12
-      },
-      "company": "PORTALINE",
-      "name": "Claudia Sawyer",
-      "isActive": true,
-      "level": "High"
+      "level": "Medium",
+      "id": 17
     },
     {
       "id": 19,
@@ -225,14 +179,54 @@
       "level": "Medium"
     },
     {
-      "name": "Long",
+      "name": "asdadas",
       "imgUrl": "https://i.imgur.com/GLqxxnn.png",
-      "phone": "0912381923",
-      "age": "19",
-      "company": "Paaaa",
+      "phone": "+71123123123",
+      "age": 12,
+      "company": "asdasdasd",
       "isActive": true,
       "level": "Low",
       "id": 21
+    },
+    {
+      "name": "long",
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+79483298492",
+      "age": 123,
+      "company": "askdja",
+      "isActive": false,
+      "level": "Low",
+      "id": 22
+    },
+    {
+      "name": "new",
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+72313123444",
+      "age": 12,
+      "company": "Pasda",
+      "isActive": false,
+      "level": "Low",
+      "id": 23
+    },
+    {
+      "name": "long con",
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+72342312313",
+      "age": 12,
+      "company": "BV1",
+      "isActive": false,
+      "level": "Low",
+      "id": 24
+    },
+    {
+      "name": "asdsad",
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+72343112312",
+      "age": 21,
+      "company": "dfsdf",
+      "isActive": false,
+      "level": "Low",
+      "id": 25
     }
   ]
 }

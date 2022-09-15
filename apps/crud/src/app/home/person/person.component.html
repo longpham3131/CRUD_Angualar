@@ -8,8 +8,8 @@
 
   <ng-template #actionTpl let-row let-rowIndex="rowIndex" >
     <div class="flex gap-1">
-      <button tuiIconButton size="m" icon="tuiIconTrash" (click)="edit(rowIndex)" ></button>
-      <button tuiIconButton icon="tuiIconEdit" size="m" appearance="accent" (click)="delete(rowIndex, confirm)"></button>
+      <button tuiIconButton size="m" icon="tuiIconEdit" (click)="edit(rowIndex)" ></button>
+      <button tuiIconButton icon="tuiIconTrash"   size="m" appearance="accent" (click)="delete(rowIndex, confirm)"></button>
     </div>
   </ng-template>
   <tui-table-pagination
@@ -21,7 +21,7 @@
 
   <ng-template #confirm  let-observer>
       Do you want delete this user ?
-      <div class="flex gap-[12px]">
+      <div class="flex gap-[12px] justify-end">
         <button tuiButton size="xs" (click)="confirmDelete(confirm, observer)" >Delete</button>
         <button tuiButton  size="xs" appearance="accent"  (click)="observer.complete()">Cancel</button>
       </div>

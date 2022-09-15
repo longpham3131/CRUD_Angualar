@@ -1,13 +1,15 @@
 <tui-root>
-  <div class="columns">
-    <div class="column col-12">
-      <ngx-table  [configuration]="configuration" [data]="data.items" [columns]="columns"> </ngx-table>
-    </div>
+  <div class="w-full text-right my-3 px-3">
+    <button  tuiButton appearance="whiteblock-active" (click)="create()" >Create</button>
+
   </div>
+
+  <ngx-table  [configuration]="configuration" [data]="data.items" [columns]="columns"> </ngx-table>
+
   <ng-template #actionTpl let-row let-rowIndex="rowIndex" >
     <div class="flex gap-1">
-      <button tuiButton (click)="edit(rowIndex)" >Edit</button>
-      <button tuiButton appearance="accent" (click)="delete(rowIndex)">Delete</button>
+      <button tuiIconButton size="m" icon="tuiIconTrash" (click)="edit(rowIndex)" ></button>
+      <button tuiIconButton icon="tuiIconEdit" size="m" appearance="accent" (click)="delete(rowIndex, confirm)"></button>
     </div>
   </ng-template>
   <tui-table-pagination
@@ -16,5 +18,12 @@
     [(size)]="size"
     (pageChange)="pageChange($event)"
   ></tui-table-pagination>
-<crud-angular-dialog #dialog></crud-angular-dialog>
+
+  <ng-template #confirm  let-observer>
+      Do you want delete this user ?
+      <div class="flex gap-[12px]">
+        <button tuiButton size="xs" (click)="confirmDelete(confirm, observer)" >Delete</button>
+        <button tuiButton  size="xs" appearance="accent"  (click)="observer.complete()">Cancel</button>
+      </div>
+  </ng-template>
 </tui-root>

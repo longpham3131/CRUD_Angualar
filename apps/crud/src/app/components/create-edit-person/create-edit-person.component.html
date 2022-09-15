@@ -1,0 +1,63 @@
+
+<h4  class="font-extrabold mb-3" > {{nameDialog}}</h4>
+<form
+  [formGroup]="personForm"
+  (ngSubmit)="onSubmit()"
+
+>
+  <tui-loader [showLoader]="loader">
+    <div  class="flex flex-col gap-[12px]">
+      <tui-input
+        formControlName="name"
+      >
+        Name
+      </tui-input>
+      <tui-input
+        formControlName="age"
+      >
+        Age
+      </tui-input>
+      <tui-input
+        formControlName="phone"
+      >
+        Phone
+      </tui-input>
+      <tui-input
+        formControlName="company"
+      >
+        Company
+      </tui-input>
+      <tui-select formControlName="level">
+        Level
+        <input
+          tuiTextfield
+          placeholder="Choose your level"
+        />
+        <tui-data-list-wrapper
+          *tuiDataList
+          [items]="levelItems"
+        ></tui-data-list-wrapper>
+      </tui-select>
+      <tui-checkbox-labeled
+        formControlName="isActive"
+        size="l"
+      >Active</tui-checkbox-labeled>
+    </div>
+
+
+  </tui-loader>
+
+  <div class="w-full text-right">
+    <button
+      tuiButton
+      type="submit"
+    >
+      {{nameBtnSubmit}}
+    </button>
+  </div>
+</form>
+<ng-template #confirmLeave>
+  <div class="dialog">
+    <p>If you leave, the changes will be deleted</p>
+  </div>
+</ng-template>

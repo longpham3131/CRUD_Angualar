@@ -1,19 +1,238 @@
 {
-  "posts": [
+  "person": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 5,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (934) 551-2224",
+      "age": 20,
+      "address": {
+        "street": "North street",
+        "number": 12
+      },
+      "company": "ZILLANET",
+      "name": "Valentine Webb",
+      "isActive": false,
+      "level": "Medium"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 6,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (948) 460-3627",
+      "age": 31,
+      "address": {
+        "street": "South street",
+        "number": 12
+      },
+      "company": "KNOWLYSIS",
+      "name": "Heidi Duncan",
+      "isActive": true,
+      "level": "High"
+    },
+    {
+      "id": 7,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (841) 479-3920",
+      "age": 30,
+      "address": {
+        "street": "Buffalo street",
+        "number": 12
+      },
+      "company": "TYPHONICA",
+      "name": "Poole Dodson",
+      "isActive": false,
+      "level": "Low"
+    },
+    {
+      "id": 8,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (998) 546-2953",
+      "age": 37,
+      "address": {
+        "street": "Onorato street",
+        "number": 12
+      },
+      "company": "COLAIRE",
+      "name": "Marie Molina",
+      "isActive": false,
+      "level": "Medium"
+    },
+    {
+      "id": 9,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (811) 511-2927",
+      "age": 31,
+      "address": {
+        "street": "Ontario street",
+        "number": 12
+      },
+      "company": "OMNIGOG",
+      "name": "Monica Frazier",
+      "isActive": true,
+      "level": "High"
+    },
+    {
+      "id": 10,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (967) 504-3593",
+      "age": 35,
+      "address": {
+        "street": "Canada street",
+        "number": 12
+      },
+      "company": "ENERVATE",
+      "name": "Kinney Logan",
+      "isActive": true,
+      "level": "Low"
+    },
+    {
+      "id": 11,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (902) 500-3665",
+      "age": 28,
+      "address": {
+        "street": "Southeast street",
+        "number": 12
+      },
+      "company": "CALCULA",
+      "name": "Wilson Hatfield",
+      "isActive": true,
+      "level": "Medium"
+    },
+    {
+      "id": 12,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (933) 565-2698",
+      "age": 29,
+      "address": {
+        "street": "Upper Terrace street",
+        "number": 12
+      },
+      "company": "GINK",
+      "name": "Trevino Casey",
+      "isActive": true,
+      "level": "High"
+    },
+    {
+      "id": 13,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (939) 530-3189",
+      "age": 34,
+      "address": {
+        "street": "Dacota street",
+        "number": 12
+      },
+      "company": "MARKETOID",
+      "name": "Scott Barker",
+      "isActive": true,
+      "level": "Low"
+    },
+    {
+      "id": 14,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (949) 600-2827",
+      "age": 29,
+      "address": {
+        "street": "5th street",
+        "number": 12
+      },
+      "company": "MATRIXITY",
+      "name": "Sheree James",
+      "isActive": true,
+      "level": "Medium"
+    },
+    {
+      "id": 15,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (833) 559-2128",
+      "age": 35,
+      "address": {
+        "street": "EastNorth street",
+        "number": 12
+      },
+      "company": "LETPRO",
+      "name": "Kristen Whitehead",
+      "isActive": true,
+      "level": "High"
+    },
+    {
+      "id": 16,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (923) 480-2195",
+      "age": 20,
+      "address": {
+        "street": "Oak street",
+        "number": 12
+      },
+      "company": "HOMETOWN",
+      "name": "Norma Rush",
+      "isActive": false,
+      "level": "Low"
+    },
+    {
+      "id": 17,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (967) 573-3873",
+      "age": 35,
+      "address": {
+        "street": "Australia street",
+        "number": 12
+      },
+      "company": "EWEVILLE",
+      "name": "Merrill Allen",
+      "isActive": true,
+      "level": "Medium"
+    },
+    {
+      "id": 18,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (985) 404-2360",
+      "age": 30,
+      "address": {
+        "street": "NYC street",
+        "number": 12
+      },
+      "company": "PORTALINE",
+      "name": "Claudia Sawyer",
+      "isActive": true,
+      "level": "High"
+    },
+    {
+      "id": 19,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (907) 406-2333",
+      "age": 27,
+      "address": {
+        "street": "Gate street",
+        "number": 12
+      },
+      "company": "VIRVA",
+      "name": "Craig Herrera",
+      "isActive": false,
+      "level": "Low"
+    },
+    {
+      "id": 20,
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "+1 (954) 412-3881",
+      "age": 37,
+      "address": {
+        "street": "Southeast",
+        "number": 12
+      },
+      "company": "VINCH",
+      "name": "Peterson Johns",
+      "isActive": false,
+      "level": "Medium"
+    },
+    {
+      "name": "Long",
+      "imgUrl": "https://i.imgur.com/GLqxxnn.png",
+      "phone": "0912381923",
+      "age": "19",
+      "company": "Paaaa",
+      "isActive": true,
+      "level": "Low",
+      "id": 21
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -13,7 +13,6 @@ export class TableService {
 
 
   getPerson(page: number , pageSize: number): Observable<IPersonPagination> {
-
     return this.http
       .get<IPerson[]>(this.usersApiUrl).pipe( map((per) => ({
         items: per.slice(page * pageSize , pageSize * (page + 1)),
@@ -21,6 +20,20 @@ export class TableService {
         pageSize: pageSize,
         totalItems: per.length
       })), tap((val) => {console.log("resp", val)}))
+  }
+
+  getPersonDetail(id: number): Observable<IPerson>{
+    return this.http.get<IPerson>(`${this.usersApiUrl}/${id}`)
+  }
+
+  createPerson(person: IPerson): Observable<IPerson>{
+    return  this.http.post<IPerson>(this.usersApiUrl, person)
+  }
+  updatePerson(person: IPerson): Observable<IPerson>{
+    return  this.http.put<IPerson>(`$`, person)
+  }
+  deletePerson(personId: number):Observable<any>{
+    return this.http.delete(`${this.usersApiUrl}/${personId}`)
   }
 
 }

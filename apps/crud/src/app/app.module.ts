@@ -1,10 +1,9 @@
-import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import {
   TuiRootModule,
   TuiDialogModule,
   TuiAlertModule,
   TUI_SANITIZER,
-  TuiButtonModule,
+  TuiButtonModule, TuiLoaderModule,
 } from '@taiga-ui/core';
 import { TuiTablePaginationModule } from '@taiga-ui/addon-table';
 
@@ -19,11 +18,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonComponent } from './home/person/person.component';
-import { DialogComponent } from './components/dialog/dialog.component';
-import {TuiInputModule} from "@taiga-ui/kit";
+import { CreateEditPersonComponent } from './components/create-edit-person/create-edit-person.component';
+import {
+  TuiCheckboxLabeledModule,
+  TuiCheckboxModule, TuiDataListWrapperModule,
+  TuiInputModule,
+  TuiRadioModule,
+  TuiSelectModule
+} from "@taiga-ui/kit";
 import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
-  declarations: [AppComponent, PersonComponent, DialogComponent],
+  declarations: [AppComponent, PersonComponent, CreateEditPersonComponent],
   imports: [
     BrowserModule,
     TableModule,
@@ -39,8 +44,16 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     TuiInputModule,
     ReactiveFormsModule,
+    TuiRadioModule,
+    TuiCheckboxModule,
+    TuiCheckboxLabeledModule,
+    TuiSelectModule,
+    TuiDataListWrapperModule,
+    TuiLoaderModule,
   ],
-  providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
+  entryComponents: [CreateEditPersonComponent],
+  providers: [],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

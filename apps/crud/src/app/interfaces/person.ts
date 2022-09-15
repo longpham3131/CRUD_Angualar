@@ -1,9 +1,9 @@
 export interface IPerson {
-  id: number
+  id?: number
   imgUrl: string
   phone: string
   age: number
-  address: IAddress
+  address?: IAddress
   company: string
   name: string
   isActive: boolean
